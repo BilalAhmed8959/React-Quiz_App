@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const App = () => {
   const [storData, setstorData] = useState(null);
+  const [totalScore,setTotalScore] = useState(0)
   const [currentIndex, setCurrentindex] = useState(0);
 const input = useRef([])
   useEffect(() => {
@@ -22,6 +23,13 @@ const input = useRef([])
     if (storData && currentIndex < storData.length - 1) {
       setCurrentindex(currentIndex + 1);
     }
+    if (selectedOption) {
+      const selectedValue = selectedOption.value;
+      if (selectedValue === questions[currentIndex].correctAnswer) {
+        setTotalScore(totalScore + 10);
+      }
+    }
+
   };
 
   const shuffleArray = (array) => {
@@ -35,23 +43,29 @@ const input = useRef([])
 
   return (
     <>
-      <h1>Quiz App</h1>
+    <div className='min_box'>
+      <h1 className='text' >Quiz App</h1>
       {storData ? (
         <>
           <div>
-            <h1>Q{currentIndex + 1}: {storData[currentIndex].question.text}</h1>
+            <p className='text_2'>Q{currentIndex + 1}: {storData[currentIndex].question.text}</p>
           </div>
+          <div className='box_2'>
           {shuffleArray([...storData[currentIndex].incorrectAnswers, storData[currentIndex].correctAnswer])?.map((item, index) => (
-            <div key={index}>
+            <div className='text_3' key={index}>
               <input type="radio" name="question" value={item} id={index} ref={el => input.current[index] =el} />
               <label htmlFor={index}>{item}</label>
             </div>
+            
           ))}
-          <button onClick={nextQuestion}>Next</button>
+          </div>
+          <button className='button' onClick={nextQuestion}>Next</button>
         </>
       ) : (
         <h1>Loading...</h1>
       )}
+      {/* <p>{totalScore}</p> */}
+      </div>
     </>
   );
 }
