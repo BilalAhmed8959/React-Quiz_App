@@ -2,6 +2,7 @@ body{
     background-image: linear-gradient(to right,rgba(159, 34, 34, 0.662), rgb(96, 39, 39));
     color: white;
     font-family: arial;
+    /* background-image: url(./assets/img/images\ \(4\).jpeg); */
 }
 
 .button{
