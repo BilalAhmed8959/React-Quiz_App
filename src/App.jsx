@@ -163,7 +163,7 @@ const App = () => {
       
         
         <p className='score'>
-        Score:{score}
+        Scoer:  {score}
         </p>
       </div>
 
