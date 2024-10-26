@@ -40,3 +40,8 @@ padding: 30px;
     margin: 0 auto;
     padding-left: 250px;
 }
+.score{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+}

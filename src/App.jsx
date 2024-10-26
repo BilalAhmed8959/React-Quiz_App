@@ -110,7 +110,7 @@ const App = () => {
     
     if (selectedOption) {
       if (selectedOption.value === storData[currentIndex].correctAnswer) {
-        setScore(prevScore => prevScore + 1); 
+        setScore(score + 10); 
         console.log("Correct answer!");
       } else {
         console.log("Wrong answer!");
@@ -160,7 +160,13 @@ const App = () => {
         ) : (
           <h1>Loading...</h1>
         )}
+      
+        
+        <p className='score'>
+        Score:{score}
+        </p>
       </div>
+
     </>
   );
 }
